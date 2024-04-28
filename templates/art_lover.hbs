@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Lover's Theatre</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .theatre {
+      background-color: black;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .stage {
+      width: 80%;
+      height: 80%;
+      border: 5px solid white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .artwork {
+      position: absolute;
+      display: none;
+      animation: fade 5s infinite;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .gallery-button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .gallery-button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="theatre">
+    <div class="stage">
+      <div id="artworks">
+        <!-- Your artworks will be dynamically added here -->
+      </div>
+      <button class="gallery-button" onclick="redirectToGallery()">Visit Art Gallery</button>
+    </div>
+  </div>
+
+  <script>
+    const artworks = [
+      "artwork1.jpg",
+      "artwork2.jpg",
+      "contact.jpg",
+      "artwork4.jpg",
+      "artwork5.jpg",
+      "image.jpg",
+      "limage.jpg",
+      "featured.jpg",
+      // Add more artwork filenames as needed
+    ];
+
+    const artworksContainer = document.getElementById('artworks');
+
+    artworks.forEach((artwork, index) => {
+      const img = document.createElement('img');
+      img.src = artwork;
+      img.alt = `Artwork ${index+1}`;
+      img.classList.add('artwork');
+      img.style.left = `${Math.random() * 80}%`;
+      img.style.top = `${Math.random() * 80}%`;
+      artworksContainer.appendChild(img);
+    });
+
+    const allArtworks = document.querySelectorAll('.artwork');
+    allArtworks.forEach((artwork, index) => {
+      setTimeout(() => {
+        artwork.style.display = 'block';
+      }, index * 2000);
+    });
+
+    function redirectToGallery() {
+      window.open('https://artsandculture.google.com/story/BQWBpEfplLwhJg', '_blank');
+    }
+  </script>
+</body>
+</html>

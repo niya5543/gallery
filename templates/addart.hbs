@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Artwork</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('welcome.jpg'); /* Replace 'welcome.jpg' with the path to your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .upload-section {
+      text-align: center;
+    }
+
+    #uploadButton {
+      font-size: 24px;
+      background-color: #1d0606;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px 20px;
+      cursor: pointer;
+    }
+
+    #uploadForm {
+      margin-top: 20px;
+    }
+
+    #uploadForm input,
+    #uploadForm textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: calc(100% - 20px);
+      padding: 10px;
+    }
+
+    #uploadForm textarea {
+      height: 100px;
+    }
+
+    #submitButton {
+      background-color: #240910;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Submit Your Gmail ID</h2>
+  <form id="submitForm" action="/addart" method="post">
+    <input type="email" id="email" name="email" placeholder="Enter Gmail ID" required><br><br>
+
+    <h2>Enter Description</h2>
+    <input type="text" id="description" name="description" placeholder="Enter Description" required><br><br>
+
+    <h2>Enter Price Range</h2>
+    <input type="number" id="price" name="price" placeholder="Enter Price" required><br><br>
+
+    <h2>Upload Image</h2>
+    <input type="file" id="fileInput" name="image" accept="image/*" required><br><br>
+
+    <!-- Submit button -->
+    <button type="submit">Submit</button> 
+  </form>
+</div>
+
+<script>
+  document.getElementById('submitForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get form values
+    var email = document.getElementById('email').value;
+    var description = document.getElementById('description').value;
+    var price = document.getElementById('price').value;
+    var file = document.getElementById('fileInput').files[0];
+
+    // Create a JSON object to store price and image data
+    var artwork = {
+      price: price,
+      image: file.name // Assuming you want to store the filename
+    };
+
+    // Save artwork data to local storage
+    localStorage.setItem('artwork', JSON.stringify(artwork));
+
+    // Submit the form
+    this.submit();
+  });
+</script>
+
+</body>
+</html>

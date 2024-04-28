@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('welcome.jpg'); /* Replace 'background_image.jpg' with the path to your background image */
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    form {
+      text-align: center;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+    
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #0f0404;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #19070a;
+    }
+    
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Login</h1>
+    <form id="loginForm" action="/adminlogin" method="post">
+      <label for="adminID">Admin ID:</label>
+      <input type="text" id="adminID" name="adminID" required><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      
+      <button type="submit">Login</button>
+    </form>
+    
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+    
+    <p>Not registered? <a href="/admin">Register here</a></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get the admin ID and password from the form
+      const adminID = document.getElementById('adminID').value;
+      const password = document.getElementById('password').value;
+
+      // Here, you can add your own logic to check the admin ID and password
+      // For demonstration purposes, let's assume admin ID "admin123" and password "password" are valid
+      if (adminID === 'admin123' && password === 'password') {
+        // Redirect to some dashboard page upon successful login
+        window.location.href = '/dashboard';
+      } else {
+        // Show error message
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('errorMessage').innerText = 'Invalid admin ID or password.';
+        window.location.href = 'dashboard';
+      }
+    });
+  </script>
+</body>
+</html>

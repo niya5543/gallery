@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('welcome.jpg'); /* Replace 'welcome.jpg' with the path to your background image */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        .dashboard-item {
+            width: 250px;
+            margin: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .dashboard-item:hover {
+            transform: translateY(-5px);
+        }
+        .dashboard-item h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dashboard-item .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #190303;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .dashboard-item .button:hover {
+            background-color: #020203;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-item">
+            <h2>Art Lover</h2>
+            <a href="/lover" class="button">Art Lover</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Art</h2>
+            <a href="/art" class="button">Art</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Bid</h2>
+            <a href="/bid" class="button">Bid</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Cart</h2>
+            <a href="cart" class="button">Cart</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Exhibition</h2>
+            <a href="/exhib" class="button">Exhibition</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Edit</h2>
+            <a href="edit" class="button">Edit</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Landing</h2>
+            <a href="/" class="button">Landing</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Sell</h2>
+            <a href="sell" class="button">Sell</a>
+        </div>
+    </div>
+</body>
+</html>
